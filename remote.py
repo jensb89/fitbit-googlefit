@@ -121,8 +121,6 @@ class Remote:
 				userId='me',
 				dataSourceId=self.convertor.GetDataSourceId(dataType)).execute()
 		except HttpError as error:
-			if not 'DataSourceId not found' in str(error):
-				raise error
 			# Data source doesn't already exist so, create it!
 			self.googleClient.users().dataSources().create(
 				userId='me',
